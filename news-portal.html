@@ -13,6 +13,8 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.2/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <script src="https://kit.fontawesome.com/ea577c7d38.js" crossorigin="anonymous"></script>
+
 
     <title>Document</title>
     <script>
@@ -21,21 +23,99 @@
                 extend: {
                     colors: {
                         clifford: '#da373d',
+                        blue: '#5D5FEF',
+                        gray: '#CDCDCD',
+                        textgray: '#A3A3A3',
+                        categorygray: '#858585',
                     }
                 },
                 fontFamily: {
-                    roboto: ['Roboto', 'sans-serif']
+                    roboto: ['Roboto', 'sans-serif'],
+                    playfair: ['Playfair Display', 'serif'],
                 }
             }
         }
     </script>
 </head>
 
-<body>
-    <h1>helow</h1>
-    <h1 class="font-roboto text-5xl font-bold">
-        Heloow roboto
-    </h1>
+<body onload="loadCategories()" class="bg-[#F6F6F6]">
+    <header>
+        <nav class="flex items-center mt-5 px-[136px]">
+            <h1 class="mr-auto">
+                <span class="w-14 h-9 bg-blue text-base p-2 rounded-lg text-white font-playfair font-bold">News</span>
+                <span class="text-blue font-bold font-playfair">Portal</span>
+            </h1>
+            <ul class="flex items-center ml-auto">
+                <li class="mr-10 font-roboto text-base font-bold text-blue border-b-2 rounded-[2px]">
+                    <a href="">News</a>
+                </li>
+                <li class="mr-9 text-gray font-normal text-base font-roboto ">
+                    <a href="">Blog</a>
+                </li>
+                <li>
+                    <img class="w-9 h-9 rounded-full border-gray border-2" src="https://picsum.photos/200/300" alt="">
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main class="px-[136px] ">
+        <!-- line -->
+        <div class="w-full border border-gray mt-8 mx-auto">
+        </div>
+        <!-- categories -->
+        <div class="mt-7">
+            <ul class="flex items-center justify-between" id="categories-container">
+
+            </ul>
+        </div>
+        <!-- news result -->
+        <div
+            class="bg-white font-roboto text-lg text-black h-16 w-auto pl-5 rounded-lg mt-10 flex flex-row items-center">
+            <span class="" id="total-result">0</span>
+            <span class="mx-1">Items found for Category</span>
+            <span id="category-name">culture</span>
+        </div>
+        <div class="flex items-center mt-10 pb-10">
+            <div class="flex flex-row items-center gap-5 mr-auto">
+                <p class="font-roboto text-lg font-normal">Sort By View:</p>
+                <select id="sort-category">
+                    <option class="font-semibold text-sm" value="default" selected onchange="loadBySort()">Default
+                    </option>
+                    <!-- <option value="entertainment">Entertainment</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="entertainment">Entertainment</option> -->
+                </select>
+            </div>
+            <div>
+                <button onclick="loadTodaysPick()"
+                    class="w-[136px] h-10 bg-blue text-white rounded text-lg font-roboto font-normal mr-3">Today's
+                    Pick</button>
+                <button onclick="loadTrendingNews()"
+                    class="w-28 h-10 border border-blue rounded text-lg font-roboto font-normal text-blue">Trending</button>
+            </div>
+        </div>
+        <!-- card -->
+        <section id="card-container">
+
+        </section>
+
+        <!-- modal -->
+
+        <!-- The button to open modal -->
+        <!-- <label for="my-modal-6" class="btn">open modal</label> -->
+
+        <!-- Put this part before body tag -->
+        <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+        <div class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box max-w-5xl" id="modal-container">
+
+            </div>
+        </div>
+
+    </main>
     <script src="news-portal.js"></script>
 </body>
 
